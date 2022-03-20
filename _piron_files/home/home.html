@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>カルーセル</title>
+  <link href="./assets/bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Filled -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Outlined -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+  <!-- Rounded -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+  <!-- Sharp -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+  <!-- Two Tone -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Two+Tone" rel="stylesheet">
+  <style>
+    .mb-4 {
+      margin-bottom: 0.5rem!important;
+    }
+
+    .modal {
+    text-align:center; /* モーダルダイアログを中央寄せにする */
+    }
+    .modal-dialog {
+        display: inline-block;
+        width: auto;
+    }
+    .modal-dialog-fluid {
+      max-height: calc(100vh - 600px);
+    }
+
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+
+    .jumbotron { background:url(./bin/main.jpg) center no-repeat; background-size: cover;}
+
+    .bodytab {
+      width: 20%;
+      padding-left:1rem;
+      padding-right:1rem;
+      
+    }
+    
+    .nav-tabs .nav-link{
+      background-color: white;
+    }
+
+    .abc{
+      text-align: left;
+    }
+
+  </style>
+
+  <link href="carousel.css" rel="stylesheet">
+  <script src="./assets/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <div class="container-fluid">
+        <a href="#" class="navbar-brand">カルーセル</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#Navbar" aria-controls="Navbar" aria-expanded="false" aria-label="ナビゲーションの切替">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="Navbar">
+          <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">ホーム</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">特徴</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">価格設定</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled">無効</a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="検索..." aria-label="検索...">
+            <button class="btn btn-outline-success flex-shrink-0" type="submit">検索</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- カルーセル
+    ================================================== -->
+  <main>
+    <div class="jumbotron">
+      <main class="container">
+        <!-- <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark"> -->
+          <div class="row">
+            <div class="col-md-12 px-0">
+              <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+                <!-- インジケータ -->
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="スライド 1"></button>
+                  <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="スライド 2"></button>
+                  <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="スライド 3"></button>
+                </div>
+                <div class="carousel-inner" >
+                  <div class="carousel-item active">
+                    <!-- <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"><rect fill="#777" width="100%" height="100%"/></svg>-->
+                    <!-- <img class="d-block order-lg-2 me-lg-n5 flex-shrink-0" src="./bin/call_of_duty_modern_warfare_2-wallpaper-1920x1080.jpg" alt="Summer Collection">
+                    <img src="./bin/call_of_duty_modern_warfare_2-wallpaper-1920x1080.jpg" class="bd-placeholder-img card-img-top"  > -->
+                    <img src="./bin/call_of_duty_modern_warfare_2-wallpaper-1920x1080.jpg" class="d-block mx-auto img-fluid">
+                    <div class="container">
+                      <div class="carousel-caption text-start">
+                        <h1>見出しの例。</h1>
+                        <p>カルーセルの1番目のスライドの代表的なプレースホルダーコンテンツ。</p>
+                        <p><a class="btn btn-primary" href="#">本日登録</a></p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="./bin/highlightbild-battlefield-2042-open-beta-termin-systemanforderungen-bestätigt_6154795.jpg" class="bd-placeholder-img card-img-top"  >
+                    <div class="container">
+                      <div class="carousel-caption">
+                        <h1>別の見出しの例。</h1>
+                        <p>カルーセルの2番目のスライドの代表的なプレースホルダーコンテンツ。</p>
+                        <p><a class="btn btn-primary" href="#">もっと学ぼう</a></p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="./bin/uiAOZ4L.png" class="bd-placeholder-img card-img-top"  >
+                    <div class="container">
+                      <div class="carousel-caption text-end">
+                        <h1>もう1つ良い指標。</h1>
+                        <p>カルーセルの3番目のスライドの代表的なプレースホルダーコンテンツ。</p>
+                        <p><a class="btn btn-primary" href="#">ギャラリーを閲覧</a></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">前へ</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">次へ</span>
+                </button>
+              </div><!-- /.carousel -->
+            </div>
+          </div>
+          <div class="row" style="margin-top:10px;">
+            <div class="col-md-12 px-0">
+              <!-- タブ -->
+              <ul class="nav nav-tabs navbar-dark justify-content-center">
+                <li class="nav-item bodytab">
+                  <a class="nav-link active" aria-current="page" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-cash" viewBox="0 0 16 16">
+                      <path d="M8 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/>
+                      <path d="M0 4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V4zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V6a2 2 0 0 1-2-2H3z"/>
+                    </svg>
+                    ALL
+                  </a>
+                </li>
+                <li class="nav-item bodytab">
+                  <a class="nav-link" href="#">料理</a>
+                </li>
+                <li class="nav-item bodytab">
+                  <a class="nav-link" href="#">レストラン</a>
+                </li>
+                <li class="nav-item bodytab">
+                  <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">ゲーム実況</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        <!-- </div> -->
+    </div>
+
+    <!-- マーケティングメッセージングとフィーチャー
+      ================================================== -->
+    <!-- 残りのページを別のコンテナで囲んで、すべてのコンテンツを中央に配置 -->
+    <div class="container marketing">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="border border-danger rounded" style="display:inline-block; padding:5px; margin-top:5px; margin-bottom:5px; background-color: #f5c6cb;">
+            料理
+        </div>
+        </div>
+      </div>
+      <!-- カルーセルの下にある3列のテキスト -->
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="card mb-4 rounded-3 shadow-sm">
+            <div class="card-body">
+              <div class="float-end"><a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2"></a>
+              </div>
+              <h5 class="text-muted fw-normal mt-0">紹介文 by 〇〇〇(ユーザ名)</h5>
+              <ul class="list-unstyled mt-3 mb-4">
+                <li>
+                  <div class="text-center embed-responsive embed-responsive-16by9">
+                    <!-- <iframe class="embed-responsive-item" src="https://www.youtube.com/watch?v=6bAbGxUWXfI" allowfullscreen></iframe> -->
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/ZQU_VPbv_sU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  </div>
+                </li>
+                <li><h2 >タイトル</h2></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-1"></div>
+            <div class="col-7" style="text-align: left;">
+              <a href="#" class="text-secondary text-decoration-none">
+                <span class="material-icons-outlined">
+                  attach_money
+                </span>
+              </a>
+
+              <a href="#" class="text-secondary text-decoration-none">
+                <span class="material-icons-outlined">
+                  favorite
+                </span>
+              </a>
+
+              <a href="#" class="text-secondary text-decoration-none">
+                <span class="material-icons-outlined">
+                  comment
+                </span>            
+              </a>
+            </div>            
+            <div class="col-4">
+              <!-- 拡散 -->
+              <a href="#" class="text-secondary text-decoration-none">
+                <span class="material-icons-outlined">
+                  ios_share
+                  </span>
+              </a>
+              <!-- 保存 -->
+              <a href="#" class="text-secondary text-decoration-none">
+                <span class="material-icons-outlined">
+                  star
+                </span>
+              </a> 
+            </div>
+          </div>
+        </div><!-- /.col-lg-4 -->
+
+        <div class="col-lg-4">
+          <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"><title>一般的なプレースホルダ画像</title><rect fill="#777" width="100%" height="100%"/></svg>
+          <h2>見出し</h2>
+          <p>この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。</p>
+          <p><a class="btn btn-secondary" href="#">詳細を見る &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"><title>一般的なプレースホルダ画像</title><rect fill="#777" width="100%" height="100%"/></svg>
+          <h2>見出し</h2>
+          <p>この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。</p>
+          <p><a class="btn btn-secondary" href="#">詳細を見る &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+      </div><!-- /.row -->
+
+      <!--フィーチャーを開始
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">最初のフィーチャータイトル。<span class="text-muted">それはあなたの心を吹き飛ばすだろう。</span></h2>
+          <p class="lead">この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。</p>
+        </div>
+        <div class="col-md-5">
+          <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"><title>一般的なプレースホルダ画像</title><rect fill="#eee" width="100%" height="100%"/><text fill="#aaa" dy=".3em" x="50%" y="50%">500x500</text></svg>
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7 order-md-2">
+          <h2 class="featurette-heading">ああ、それは良いことだ。<span class="text-muted">自分で見て。</span></h2>
+          <p class="lead">この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。</p>
+        </div>
+        <div class="col-md-5 order-md-1">
+          <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"><title>一般的なプレースホルダ画像</title><rect fill="#eee" width="100%" height="100%"/><text fill="#aaa" dy=".3em" x="50%" y="50%">500x500</text></svg>
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">そして、最後に、これ。<span class="text-muted">チェックメイト。</span></h2>
+          <p class="lead">この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。</p>
+        </div>
+        <div class="col-md-5">
+          <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"><title>一般的なプレースホルダ画像</title><rect fill="#eee" width="100%" height="100%"/><text fill="#aaa" dy=".3em" x="50%" y="50%">500x500</text></svg>
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+      /フィーチャーを終了 -->
+    </div><!-- /.container -->
+  </main>
+
+  <!-- フッタ
+  <footer class="container">
+    <p class="float-right"><a href="#">トップに戻る</a></p>
+    <p>&copy; 2017–2021 会社名 &middot; <a href="#">プライバシー</a> &middot; <a href="#">条項</a></p>
+  </footer>
+   -->
+
+
+</body>
+
+</html>
