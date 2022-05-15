@@ -3,7 +3,7 @@
 /* ========================================
     リセットcss
 ========================================= */
-html, body, div, span, applet, object, iframe,
+/* html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
@@ -45,13 +45,13 @@ div#test {
 }
 
 /* micro clearfix */
-.cf:before,
+/* .cf:before,
 .cf:after {
     content: " ";
     display: table;
 }
 .cf:after {clear: both;}
-.cf {*zoom: 1;}
+.cf {*zoom: 1;} */
 
 
 /*
@@ -63,7 +63,7 @@ div#test {
 header {
   width: 100%;
   height: 460px;
-  background-color: #ffafaf;
+  background-color: #ffa880;
 }
 
 header h1 {
@@ -85,13 +85,30 @@ section {
 }
 
 section #login {
-  width: 500px;
+  width: 450px;
+  margin: 20px;
   /* height: 60px; */
   /* background-color: red;  */
 }
 
-section #login ul {
-  width: 300px;
-  height: 60px;
-  background-color: red; 
+section #login .title-text {
+    font-size: 25px;
+    font-weight: 600    ;
+}
+
+section #login .input-field {
+    margin: 10px;
+    width: unset;
+}
+
+section #login .btn-login {
+    color: #FF4D00;
+    background-color: #FFFFFF;
+    border: 2px solid #FF4D00;
+}
+
+section #login .btn-create-account {
+    color: #FFFFFF;
+    background-color: #FF4D00;
+    border: 2px solid #FF4D00;
 }
