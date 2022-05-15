@@ -8,4 +8,5 @@ def profile_action(request):
 def post_action(request):
     return render(request, 'post-post.html')
 
-
+def login_action(request):
+    return render(request, 'login.html')
