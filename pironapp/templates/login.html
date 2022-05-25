@@ -21,16 +21,20 @@
   </header>
   <section>
     <div class="d-flex flex-column align-items-center">
-      <form id="login" class="d-flex flex-column">
+      <form id="login" class="d-flex flex-column" method="post">
         <div class="d-flex flex-column input-field">
           <span class="title-text">LOG IN</span>
           <span>Enter your e-mail address or phone number</span>
+          {% if error_message %}
+            <span style="color: red">{{ error_message }}</span>
+          {% endif %}
         </div>      
-        <input type="text" id="login_id" name="login_id" value="test@sample.com" class="form-control input-field">
-        <input type="password" id="login_pass" name="login_pass" class="form-control input-field">
+        <input type="text" id="login_id" name="login_id" value="{% firstof login_id %}" class="form-control input-field" placeholder="Email or Phone Number">
+        <input type="password" id="login_pass" name="login_pass" class="form-control input-field" placeholder="Password">
         <div class="checkbox">
           <input type="checkbox" id="login_remember" name="login_remember" class="input-field">
           <label for="login_remember">REMEMBER ME</label>
+          <span></span>
         </div>
         <button type="submit" class="btn btn-login input-field">LOG IN</button>
         <button type="button" class="btn btn-create-account input-field">CREATE NEW ACCOUNT</button>
