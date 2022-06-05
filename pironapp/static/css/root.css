@@ -1,0 +1,30 @@
+:root {
+    /* color */
+    --theme-color: #ff4D00;
+    --theme-color-extra-light: #fff7f3;
+    --theme-color-light: #ff813b;
+    --theme-color-dark: #c30100;
+
+    /* height */
+
+    /* width */
+
+    /* space */
+
+    /* font */ 
+
+    /* for desktop */
+    @media screen and (min-width: 768px) {
+        
+    }
+
+    /* for tablets */
+    @media screen and (min-width: 600px) {
+
+    }
+
+    /* for mobile */
+    @media screen and (max-width: 768px) {
+        
+    }
+}
