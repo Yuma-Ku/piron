@@ -6,8 +6,10 @@
     --theme-color-dark: #c30100;
 
     /* height */
+    --header-height: 460px;
 
     /* width */
+    --section-width: 450px;
 
     /* space */
 
@@ -25,6 +27,7 @@
 
     /* for mobile */
     @media screen and (max-width: 768px) {
-        
+        --header-height: 160px;
+        --section-width: 90%;
     }
 }

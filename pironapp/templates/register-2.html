@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="jp">
+{% load static %}
+<head>
+  <title>Register - Piron</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{% static 'assets/bootstrap-5.1.3-dist/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/root.css' %}">
+  <link rel="stylesheet" href="{% static 'css/general.css' %}">
+  <link rel="stylesheet" href="{% static 'register/style.css' %}">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto%20Sans%20JP">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
+</head>
+
+<body>
+  <header>
+    <div class="align-items-center d-flex flex-column h-100 justify-content-center">
+      <div class="d-flex">
+        <h1>Piron</h1>    
+      </div>
+    </div>
+  </header>
+  <section>
+    <div class="d-flex flex-column align-items-center">
+      <form id="register" class="d-flex flex-column">
+        <div class="d-flex flex-column input-field">
+          <span class="title-text">会員登録</span>
+          <span>登録するパスワードを入力して下さい。</span>
+        </div>      
+        <input type="password" id="password" name="password" value="" class="form-control input-field" placeholder="パスワード">
+        <input type="password" id="password_confirm" name="password_confirm" class="form-control input-field" placeholder="確認用パスワード(上記パスワードと同じ)">
+        <button type="button" onclick="nextRegister()" class="btn btn-orange-inverse btn-next input-field">次へ</button>
+        <div>
+            <input type="checkbox" id="save_password" name="save_passord">
+            <label for="save_password">チェックをした場合は、記載ID, Passwordを保存</label>
+        </div>
+        </form>
+    </div>  
+  </section>
+</body>
+<script>
+  function nextRegister() {
+    var password = document.getElementById("password").value;
+    var password_confirm = document.getElementById("password_confirm").value;
+    if (password == "" && password_confirm == "") {
+        window.alert("パスワードを入力してください。");
+    } else if (password != password_confirm) {
+        window.alert("パスワードと確認用パスワードは一致しません。")
+    } else {
+        window.location.href = "/register-3";
+    }
+  }
+</script>
+
+</html>

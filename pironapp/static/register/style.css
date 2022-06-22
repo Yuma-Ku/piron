@@ -1,0 +1,30 @@
+header {
+    width: 100%;
+    height: var(--header-height);
+    background-color: var(--theme-color-light);
+  }
+  
+header h1 {
+    font-size: 46px;
+    color: #000000;
+    /* background: url(images/piron.png) no-repeat; */
+
+}
+
+section {
+    width: 100%;
+}
+
+section #register {
+  width: var(--section-width);
+  margin: 20px;
+}
+
+section #register .title-text {
+    font-size: 25px;
+    font-weight: 600    ;
+}
+
+section #register .input-field {
+    margin: 15px 0;
+}

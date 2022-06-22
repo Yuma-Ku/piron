@@ -10,6 +10,14 @@ def profile_action(request):
 def post_action(request):
     return render(request, 'post-post.html')
 
+def register_action(request):
+    return render(request, 'register.html')
+
+def register2_action(request):
+    return render(request, 'register-2.html')
+def register3_action(request):
+    return render(request, 'register-3.html')        
+
 @csrf_exempt
 def login_action(request):
 
