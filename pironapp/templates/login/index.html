@@ -10,36 +10,40 @@
   <link rel="stylesheet" href="{% static 'login/style.css' %}">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto%20Sans%20JP">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
 <body>
   <header>
     <div class="align-items-center d-flex flex-column h-100 justify-content-center">
       <div class="d-flex">
-        <h1>Piron</h1>    
+        <img id="logo" src="{% static 'home/images/home-icon.svg' %}">    
       </div>
     </div>
   </header>
   <section>
     <div class="d-flex flex-column align-items-center">
-      <form id="login" class="d-flex flex-column" method="post">
+      <form id="login" class="d-flex flex-column" method="post" novalidate>
         <div class="d-flex flex-column input-field">
           <span class="title-text">ログイン</span>
-          <span>ログイン登録されているEメールアドレス又は電話番号を入力して下さい。</span>
-          {% if error_message %}
-            <span style="color: red">{{ error_message }}</span>
-          {% endif %}
+          <!-- <span class="small">ログイン登録されているメールアドレスまたは電話番号を入力して下さい。</span> -->
+          {% for error in form.non_field_errors %}
+            <span style="color: red">{{ error }}</span>
+          {% endfor %}
         </div>      
-        <input type="text" id="login_id" name="login_id" value="{% firstof login_id %}" class="form-control input-field" placeholder="Eメール又は電話番号">
-        <input type="password" id="login_pass" name="login_pass" class="form-control input-field" placeholder="パスワード">
+        {{ form.login_id }}
+        {{ form.login_pass }}
         <div class="form-check mt-3">
           <input type="checkbox" id="login_remember" name="login_remember" class="form-check-input">
           <label for="login_remember" class="form-label">記録する</label>
           <span></span>
         </div>
-        <button type="submit" class="btn btn-orange btn-login input-field">ログイン</button>
-        <button type="button" class="btn btn-orange-inverse btn-create-account input-field">会員登録</button>
-        <span class="mt-4">
+        <div class="d-flex flex-column gap-3">
+          <button type="submit" class="btn btn-orange-inverse btn-login">ログイン</button>
+          <!-- <span class="text-center">または</span> -->
+          <a class="btn btn-orange btn-create-account" href="../register">会員登録</a>  
+        </div>
+        <span class="mt-4 text-center">
           <a href="">パスワードを忘れた方はこちら</a>
         </span>
 
@@ -50,9 +54,17 @@
           <div class="icon"></div>
           <div class="icon"></div>
         </div>
+        <button type="submit" class="btn btn-orange btn-login input-field">ログイン</button>
       </form>
     </div>  
   </section>
 </body>
+<script>
+  $(function() {
+        $(".btn-create-account").click(function () {
+            window.location.href = "../register";
+        });
+    });
+</script>
 
 </html>

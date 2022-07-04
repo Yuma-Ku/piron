@@ -1,59 +1,3 @@
-@charset "utf-8";
-
-/* ========================================
-    リセットcss
-========================================= */
-/* html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-style:normal;
-    font-weight: normal;
-    font-size: 100%;
-    vertical-align: baseline;
-}
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-    display: block;
-}
-html{overflow-y: scroll;}
-blockquote, q {quotes: none;}
-blockquote:before, blockquote:after,q:before, q:after {content: ''; content: none;}
-input, textarea{margin: 0; padding: 0;}
-ol, ul{list-style:none;}
-table{border-collapse: collapse; border-spacing:0;}
-caption, th{text-align: left;}
-a:focus {outline:none;}
-
-div#test {
-    text-align: center;
-    position: absolute;
-    top: 0;
-    opacity: 0.5;
-}
-
-/* micro clearfix */
-/* .cf:before,
-.cf:after {
-    content: " ";
-    display: table;
-}
-.cf:after {clear: both;}
-.cf {*zoom: 1;} */
-
-
 /*
 ========================================
     ヘッダー
@@ -61,15 +5,15 @@ div#test {
 */
 
 header {
-  width: 100%;
-  height: 460px;
-  background-color: var(--theme-color-light);
+    width: 100%;
+    height: 40vh;
+    background-color: var(--theme-color-light);
 }
 
 header h1 {
-	font-size: 46px;
-	color: #000000;
-	/* background: url(images/piron.png) no-repeat; */
+    font-size: 1.5rem;
+    color: #000000;
+    /* background: url(images/piron.png) no-repeat; */
 
 }
 
@@ -84,16 +28,21 @@ section {
     width: 100%;
 }
 
-section #login {
-  width: 450px;
-  margin: 20px;
-  /* height: 60px; */
-  /* background-color: red;  */
+section form#login {
+    max-width: 420px;
+    padding: 1.5rem;
+    width: 100%;
+    /* height: 60px; */
+    /* background-color: red;  */
 }
 
 section #login .title-text {
     font-size: 25px;
-    font-weight: 600    ;
+    font-weight: 600;
+}
+
+section #login .small {
+    font-size: 0.75rem;
 }
 
 section #login .input-field {

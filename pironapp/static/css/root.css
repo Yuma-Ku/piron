@@ -31,3 +31,8 @@
         --section-width: 90%;
     }
 }
+
+body {
+    background-color: var(--theme-color-extra-light);
+    font-size: 0.75em;
+}
