@@ -1,18 +1,7 @@
 <!DOCTYPE html>
 <html lang="jp">
 {% load static %}
-<head>
-  <title>Login - Piron</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="{% static 'assets/bootstrap-5.1.3-dist/css/bootstrap.min.css' %}">
-  <link rel="stylesheet" href="{% static 'css/root.css' %}">
-  <link rel="stylesheet" href="{% static 'css/general.css' %}">
-  <link rel="stylesheet" href="{% static 'login/style.css' %}">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto%20Sans%20JP">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-</head>
-
+{% include '_shared/htmlhead.html' %}
 <body>
   <header>
     <div class="align-items-center d-flex flex-column h-100 justify-content-center">
@@ -24,6 +13,7 @@
   <section>
     <div class="d-flex flex-column align-items-center">
       <form id="login" class="d-flex flex-column" method="post" novalidate>
+        {% csrf_token %}
         <div class="d-flex flex-column input-field">
           <span class="title-text">ログイン</span>
           <!-- <span class="small">ログイン登録されているメールアドレスまたは電話番号を入力して下さい。</span> -->
@@ -58,6 +48,7 @@
       </form>
     </div>  
   </section>
+  {% include '_shared/footer.html' %}
 </body>
 <script>
   $(function() {

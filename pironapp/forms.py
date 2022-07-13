@@ -3,9 +3,9 @@ from django import forms
 from pironapp.models import User
 
 
-def is_account_exist(v_email, v_password):
+def get_login_user_info(v_email, v_password):
     user_info = User.objects.filter(login_id=v_email, password=v_password)
-    return user_info.count() > 0
+    return user_info
 
 
 class LoginForm(forms.Form):
@@ -15,7 +15,6 @@ class LoginForm(forms.Form):
             "class": "form-control input-field",
             "placeholder": "メールアドレス"
         }), required=True
-        # }), required=True, validators=[validators.EmailValidator()]
     )
 
     login_pass = forms.CharField(
@@ -34,5 +33,8 @@ class LoginForm(forms.Form):
         if not (login_id and login_pass):
             raise ValidationError('ログインIDとパスワードを入力してください。')
 
-        if not is_account_exist(login_id, login_pass):
+        user_info = get_login_user_info(login_id, login_pass)
+        if not user_info.count() == 1:
             raise ValidationError('ログインIDまたはパスワードが正しくありません。')
+        
+        return user_info        
