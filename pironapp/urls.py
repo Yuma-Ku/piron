@@ -8,7 +8,7 @@ from . import views
 urlpatterns = [
     path('profile/', views.profile_action),
     path('post/',views.post_action),
-    path('', views.login_action, name='login'),
+    path('', views.home_action, name='home'),
     path('login/', views.login_action, name='login'),
     path('favicon.ico', RedirectView.as_view(url=staticfiles_storage.url("images/favicon.ico"))),
     path('register/', views.register_action),

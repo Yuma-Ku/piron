@@ -1,10 +1,10 @@
 {% load static %}
 <footer>
   <div class="d-flex align-items-center justify-content-center text-center h-100 p-2">
-      Privacy  · Terms  · Advertising  · Ad Choices   · Cookies  · More<br>
-      Piron © 2022
+    Privacy · Terms · Advertising · Ad Choices · Cookies · More<br>
+    Piron © 2022
   </div>
 </footer>
-{% with request.resolver_match.url_name|add:'/script.js' as custom_js %}
-    <script src="{% static custom_js %}"></script>
+{% with url_name|add:'/script.js' as custom_js %}
+<script src="{% static custom_js %}"></script>
 {% endwith %}

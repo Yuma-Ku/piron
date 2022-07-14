@@ -1,61 +1,57 @@
 <!DOCTYPE html>
 <html lang="jp">
 {% load static %}
-{% include '_shared/htmlhead.html' %}
-<body>
-  <header>
-    <div class="align-items-center d-flex flex-column h-100 justify-content-center">
-      <div class="d-flex">
-        <img id="logo" src="{% static 'home/images/home-icon.svg' %}">    
-      </div>
-    </div>
-  </header>
-  <section>
-    <div class="d-flex flex-column align-items-center">
-      <form id="login" class="d-flex flex-column" method="post" novalidate>
-        {% csrf_token %}
-        <div class="d-flex flex-column input-field">
-          <span class="title-text">ログイン</span>
-          <!-- <span class="small">ログイン登録されているメールアドレスまたは電話番号を入力して下さい。</span> -->
-          {% for error in form.non_field_errors %}
-            <span style="color: red">{{ error }}</span>
-          {% endfor %}
-        </div>      
-        {{ form.login_id }}
-        {{ form.login_pass }}
-        <div class="form-check mt-3">
-          <input type="checkbox" id="login_remember" name="login_remember" class="form-check-input">
-          <label for="login_remember" class="form-label">記録する</label>
-          <span></span>
-        </div>
-        <div class="d-flex flex-column gap-3">
-          <button type="submit" class="btn btn-orange-inverse btn-login">ログイン</button>
-          <!-- <span class="text-center">または</span> -->
-          <a class="btn btn-orange btn-create-account" href="../register">会員登録</a>  
-        </div>
-        <span class="mt-4 text-center">
-          <a href="">パスワードを忘れた方はこちら</a>
-        </span>
 
-        <span class="mt-4">外部サービスでサインインする</span>
-        <div class="d-flex oauth-signin">
-          <div class="icon"></div>
-          <div class="icon"></div>
-          <div class="icon"></div>
-          <div class="icon"></div>
+<head>
+    {% include '_shared/htmlhead.html' %}
+</head>
+
+<body>
+    <header>
+        <div class="align-items-center d-flex flex-column h-100 justify-content-center">
+            <div class="d-flex">
+                <img id="logo" src="{% static 'home/images/home-icon.svg' %}">
+            </div>
         </div>
-        <button type="submit" class="btn btn-orange btn-login input-field">ログイン</button>
-      </form>
-    </div>  
-  </section>
-  {% include '_shared/footer.html' %}
+    </header>
+    <section>
+        <div class="d-flex flex-column align-items-center">
+            <form id="login" class="d-flex flex-column" method="post" novalidate>
+                {% csrf_token %}
+                <div class="d-flex flex-column input-field">
+                    <span class="title-text">ログイン</span>
+                    <!-- <span class="small">ログイン登録されているメールアドレスまたは電話番号を入力して下さい。</span> -->
+                    {% for error in form.non_field_errors %}
+                    <span style="color: red">{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {{ form.login_id }}
+                {{ form.login_pass }}
+                <div class="form-check mt-3">
+                    <input type="checkbox" id="login_remember" name="login_remember" class="form-check-input">
+                    <label for="login_remember" class="form-label">記録する</label>
+                    <span></span>
+                </div>
+                <div class="d-flex flex-column gap-3">
+                    <button type="submit" class="btn btn-orange-inverse btn-login">ログイン</button>
+                    <!-- <span class="text-center">または</span> -->
+                    <a class="btn btn-orange btn-create-account" href="../register">会員登録</a>
+                </div>
+                <span class="mt-4 text-center">
+                    <a href="">パスワードを忘れた方はこちら</a>
+                </span>
+
+                <span class="mt-4">外部サービスでサインインする</span>
+                <div class="d-flex oauth-signin">
+                    <div class="icon"></div>
+                    <div class="icon"></div>
+                    <div class="icon"></div>
+                    <div class="icon"></div>
+                </div>
+            </form>
+        </div>
+    </section>
+    {% include '_shared/footer.html' %}
 </body>
-<script>
-  $(function() {
-        $(".btn-create-account").click(function () {
-            window.location.href = "../register";
-        });
-    });
-</script>
 
 </html>

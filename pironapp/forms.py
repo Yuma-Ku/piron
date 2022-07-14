@@ -36,5 +36,6 @@ class LoginForm(forms.Form):
         user_info = get_login_user_info(login_id, login_pass)
         if not user_info.count() == 1:
             raise ValidationError('ログインIDまたはパスワードが正しくありません。')
-        
-        return user_info        
+
+        cleaned_data['user_id'] = user_info[0].id
+        return cleaned_data

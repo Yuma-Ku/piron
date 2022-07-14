@@ -26,25 +26,35 @@ def register3_action(request):
 
 def login_action(request):
     
-    if (request.session.get('id', False)):
-        # return HttpResponse(request.session["id"])
-        return render(request, 'home/index.html')
-
+    if (request.session.get('user_id', False)):
+        return HttpResponseRedirect('/')
+    
+    login_form = LoginForm()
     if (request.method == 'POST'):
         login_form = LoginForm(request.POST or None)
         if login_form.is_valid():
-            request.session["id"] = 123
-            return render(request, 'home/index.html')
-    else:
-        login_form = LoginForm()
+            request.session['user_id'] = login_form.cleaned_data['user_id']
+            return HttpResponseRedirect('/')
 
     args = {
         'form': login_form,
+        'url_name': 'login',
     }
 
+    # return HttpResponse(request.resolver_match.url_name)
     return render(request, 'login/index.html', args)
 
+def home_action(request):
+    if (not request.session.get('user_id', False)):
+        return HttpResponseRedirect('/login/')
+    # return HttpResponse(request.resolver_match.url_name)
+    
+    return render(request, 'home/index.html')
+        
+    
+
 def logout_action(request):
-    del request.session['id']
+    if (request.session.get('user_id', False)):
+        del request.session['user_id']
     return HttpResponseRedirect('/')
     
