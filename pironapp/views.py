@@ -38,23 +38,44 @@ def login_action(request):
 
     args = {
         'form': login_form,
-        'url_name': 'login',
+        'title': 'ログイン',
     }
 
-    # return HttpResponse(request.resolver_match.url_name)
     return render(request, 'login/index.html', args)
 
 def home_action(request):
     if (not request.session.get('user_id', False)):
         return HttpResponseRedirect('/login/')
-    # return HttpResponse(request.resolver_match.url_name)
     
-    return render(request, 'home/index.html')
+    args = {
+        'title': 'ホーム',
+    }
+    
+    return render(request, 'home/index.html', args)
         
-    
 
 def logout_action(request):
     if (request.session.get('user_id', False)):
         del request.session['user_id']
     return HttpResponseRedirect('/')
     
+def create_action(request):
+    
+    args = {
+        'title': 'ポスト・ライブ',
+    }
+    
+    return render(request, 'create/index.html', args)
+    
+
+def create_post_action(request):
+    args = {
+        'title': 'ポスト作成',
+    }
+    return render(request, 'create/post.html', args)
+
+def create_live_action(request):
+    args = {
+        'title': 'ポスト作成',
+    }
+    return render(request, 'create/live.html', args)

@@ -44,8 +44,32 @@
     border-color: var(--theme-color-dark);
 }
 
+#container {
+    margin: auto;
+    max-width: 1200px;
+}
+
+header {
+    background-color: var(--theme-color-light);
+    top: 0;
+    z-index: 999;
+}
+
+header i.material-icons-outlined {
+    cursor: pointer;
+    font-size: 1.75em;
+    margin: 0 5px;
+    color: white;
+}
+
+header #logo {
+    height: 30px;
+}
+
+
+
 footer {
-    margin-top: 2rem;
+    /* margin-top: 2rem; */
     height: 5rem;
     background-color: var(--theme-color-light);
     font-size: 0.75rem;

@@ -1,14 +1,3 @@
-#container {
-    margin: auto;
-    /* max-width: 1200px; */
-}
-
-header {
-    background-color: var(--theme-color-light);
-    top: 0;
-    z-index: 999;
-}
-
 section i.material-icons-outlined {
     cursor: pointer;
 }
@@ -19,17 +8,6 @@ section[aria-labelledby="featured"] i.material-icons-outlined {
 
 section[aria-labelledby="featured"] i.material-icons-outlined:hover {
     color: var(--theme-color-dark);
-}
-
-header i.material-icons-outlined {
-    cursor: pointer;
-    font-size: 1.75em;
-    margin: 0 5px;
-    color: white;
-}
-
-#logo {
-    height: 30px;
 }
 
 .post-item {

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="jp">
+{% load static %}
+
+<head>
+    {% include '_shared/htmlhead.html' %}
+</head>
+
+<body>
+    {% include '_shared/header.html' %}
+    <div id="container">
+        <div class="d-flex flex-wrap justify-content-center flex-grow-1 panel">
+
+            <div class="d-flex flex-column create-type post-panel">
+                <div class="d-flex mb-3">
+                    <img src="" alt="Image" class="create-type-icon">
+                    <h1>POST</h1>
+                </div>
+                <div class="d-flex flex-column description">
+                    <div>
+                        <img src="" alt="Image" class="create-type-icon">
+                        <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, quaerat!</span>
+                    </div>
+                    <div>
+                        <img src="" alt="Image" class="create-type-icon">
+                        <span>Lorem ipsum dolor sit amet.</span>
+                    </div>
+                    <div>
+                        <img src="" alt="Image" class="create-type-icon">
+                        <span>Lorem ipsum dolor sit amet.</span>
+                    </div>
+                </div>
+                <hr>
+                <button id="btn-create-post" class="btn btn-orange-inverse"><b>POSTを作成する</b></button>
+            </div>
+
+
+            <div class="d-flex flex-column create-type live-panel">
+                <div class="d-flex mb-3">
+                    <img src="" alt="Image" class="create-type-icon">
+                    <h1>LIVE</h1>
+                </div>
+                <div class="d-flex flex-column description">
+                    <div>
+                        <img src="" alt="Image" class="create-type-icon">
+                        <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, quaerat!</span>
+                    </div>
+                    <div>
+                        <img src="" alt="Image" class="create-type-icon">
+                        <span>Lorem ipsum dolor sit amet.</span>
+                    </div>
+                    <div>
+                        <img src="" alt="Image" class="create-type-icon">
+                        <span>Lorem ipsum dolor sit amet.</span>
+                    </div>
+                </div>
+                <hr>
+                <button id="btn-create-live" class="btn btn-orange-inverse"><b>LIVEを作成する</b></button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

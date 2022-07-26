@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="jp">
+{% load static %}
+
+<head>
+    {% include '_shared/htmlhead.html' %}
+    <style>
+        #container {
+            max-width: 800px;
+        }
+    </style>
+</head>
+
+<body>
+    {% include '_shared/header.html' %}
+    <div id="container">
+        <div class="live-create-setup">
+            <p class="title mb-0">LIVE作成</span>
+            <p class="subtitle"><b>画像アップロード</b> > サムネイルアップロード > 本文作成</p>
+            <hr>
+            <div class="tab-content">
+                <div class="tab-pane active">
+                    <div class="d-flex flex-column">
+                        <div class="d-flex align-items-center justify-content-center flex-grow-1">
+                            <h1>tab pane 1b</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane">
+                    <div class="d-flex flex-column">
+                        <div class="d-flex align-items-center justify-content-center flex-grow-1">
+                            <h2>tab pane 2b</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane">
+                    <div class="d-flex flex-column">
+                        <div class="d-flex align-items-center justify-content-center flex-grow-1">
+                            tab pane 3
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex flex-wrap gap-3 justify-content-center">
+                <button id="prev-live" class="btn btn-orange d-none">戻る</button>
+                <button id="next-live" class="btn btn-orange-inverse">次へ</button>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>
