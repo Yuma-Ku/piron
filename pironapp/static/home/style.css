@@ -37,6 +37,13 @@ section[aria-labelledby="featured"] i.material-icons-outlined:hover {
     height: 3em;
 }
 
+.post-item .thumbnail-image {
+    aspect-ratio: 16/9; 
+    max-height: 20em;
+    object-position: center; 
+    object-fit: cover;
+}
+
 .post-details {
     /* background-color: aqua; */
     background-color: white;

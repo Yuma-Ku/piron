@@ -39,7 +39,7 @@
     max-width: 800px;
     /* min-height: 500px; */
     margin: 1rem;
-    padding: 1rem;
+    padding: 2rem 2.5rem;
     box-shadow: 3px 3px 10px 1px rgba(128, 128, 128, 0.62);
 }
 
@@ -56,6 +56,27 @@
 .post-create-setup button:is(#prev, #next) {
     min-width: 10rem;
 }
+
+.post-create-setup #images-panel .col-label {
+    width: 20em;
+}
+
+.post-create-setup #images-panel .col-label label {
+    font-size: 1rem;
+    font-weight: 500;
+    padding: .375rem 0;
+}
+
+.post-create-setup #info-panel .col-label {
+    width: 15em;
+}
+
+.post-create-setup #info-panel .col-label label {
+    font-size: 1rem;
+    font-weight: 500;
+    padding: .375rem 0;
+}
+
 
 /* 
 /create/live 

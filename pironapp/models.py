@@ -144,9 +144,10 @@ class Post(models.Model):
     created = models.CharField(max_length=255)
     updated = models.CharField(max_length=255)
     description = models.CharField(max_length=255, blank=True, null=True)
+    location = models.CharField(max_length=255, blank=True, null=True)
+    thumbnail_image = models.CharField(null=True, blank=True, max_length=255)
 
     class Meta:
-        managed = False
         db_table = 'post'
 
 
@@ -157,7 +158,6 @@ class PostCategory(models.Model):
     icon_path = models.CharField(max_length=255, blank=True, null=True)
 
     class Meta:
-        managed = False
         db_table = 'post_category'
 
 
@@ -188,7 +188,6 @@ class User(models.Model):
     main_area = models.IntegerField(blank=True, null=True)
 
     class Meta:
-        managed = False
         db_table = 'user'
 
 
@@ -198,7 +197,6 @@ class UserCategory(models.Model):
     updated = models.CharField(max_length=255)
 
     class Meta:
-        managed = False
         db_table = 'user_category'
 
 
@@ -209,7 +207,6 @@ class UserFollower(models.Model):
     updated = models.CharField(max_length=255)
 
     class Meta:
-        managed = False
         db_table = 'user_follower'
 
 
@@ -220,7 +217,6 @@ class UserPostCategory(models.Model):
     updated = models.CharField(max_length=255, blank=True, null=True)
 
     class Meta:
-        managed = False
         db_table = 'user_post_category'
 
 
@@ -233,5 +229,4 @@ class UserVerification(models.Model):
     updated = models.CharField(max_length=255)
 
     class Meta:
-        managed = False
         db_table = 'user_verification'
