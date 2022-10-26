@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="jp">
+{% load static %}
+
+<head>
+    {% include '_shared/htmlhead.html' %}
+    <title>
+        {% block title %}
+        {{ title }} | Piron
+        {% endblock title %}
+    </title>
+</head>
+
+<body>
+    {% include '_shared/header.html' %}
+    <div id="container">
+        <div id="floating-menu">
+            <div class="d-flex flex-column align-items-center me-3">
+                <input type="checkbox" id="nav-toggle" class="nav-toggle">
+                <label for="nav-toggle">
+                    <div class="burger-icon">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </label>
+                <nav>
+                    <ul>
+                        <li><a href="#"><i class="material-icons-outlined">home</i></a></li>
+                        <li><a href="#"><i class="material-icons-outlined">whatshot</i></a></li>
+                        <li><a href="../create"><i class="material-icons-outlined">add</i></a></li>
+                        <li><a href="../profile"><i class="material-icons-outlined">person</i></a></li>
+                        <li><a href="#"><i class="material-icons-outlined">map</i></a></li>
+                        <li><a href="../logout"><i class="material-icons-outlined">logout</i></a></li>
+                    </ul>
+                </nav>
+
+            </div>
+        </div>
+        {% block content %}
+        {% endblock content %}
+
+    </div>
+    {% include '_shared/footer.html' %}
+</body>
+
+</html>

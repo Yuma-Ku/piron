@@ -1,312 +1,118 @@
-<!DOCTYPE html>
-<html lang="jp">
+{% extends 'base.html' %}
 {% load static %}
+{% block title %}{{ title }}{% endblock title %}
 
-<head>
-    {% include '_shared/htmlhead.html' %}
-</head>
+{% block content %}
+<section aria-labelledby="featured">
+    <div class="d-flex flex-column post-item featured position-relative my-2">
+        <!-- <div class="position-relative" style="aspect-ratio: 16/9"> -->
+        <img src="{{ featured_post.thumbnail_image }}" class="thumbnail-image">
+        <div class="position-absolute featured-banner">
+            FEATURED
+        </div>
+        <!-- </div> -->
 
-<body>
-    {% include '_shared/header.html' %}
-    <div id="container">
-        <div id="floating-menu">
-            <div class="d-flex flex-column align-items-center me-3">
-                <input type="checkbox" id="nav-toggle" class="nav-toggle">
-                <label for="nav-toggle">
-                    <div class="burger-icon">
-                        <div></div>
-                        <div></div>
-                        <div></div>
+        <div class="d-flex flex-column post-details p-2 gap-2">
+            <div class="d-flex align-items-center gap-2">
+                <img class="profile-pic" src="{{ user.profile_path }}">
+                <div class="d-flex flex-column">
+                    <span class="user-name">{{ user.name }}</span>
+                    <span class="user-location">{{ featured_post.location }}</span>
+                </div>
+            </div>
+            <div class="d-flex flex-column flex-grow-1">
+                <div class="d-flex flex-column flex-md-row" style="gap:0 1em">
+                    <div class="d-flex gap-1 mb-2">
+                        <span class="hashtag">#trending</span>
+                        <span class="hashtag">#shoppingjapan</span>
                     </div>
-                </label>
-                <nav>
-                    <ul>
-                        <li><a href="#"><i class="material-icons-outlined">home</i></a></li>
-                        <li><a href="#"><i class="material-icons-outlined">whatshot</i></a></li>
-                        <li><a href="../create"><i class="material-icons-outlined">add</i></a></li>
-                        <li><a href="../profile"><i class="material-icons-outlined">person</i></a></li>
-                        <li><a href="#"><i class="material-icons-outlined">map</i></a></li>
-                        <li><a href="../logout"><i class="material-icons-outlined">logout</i></a></li>
-                    </ul>
-                </nav>
-
+                </div>
+                <span class="post-title">{{ featured_post.title }}</span>
+                <span>
+                    {{ featured_post.description }}
+                </span>
+                <div class="d-flex justify-content-end mt-3">
+                    <i class="material-icons-outlined mx-1">paid</i>
+                    <i class="material-icons-outlined mx-1">favorite_border</i>
+                    <i class="material-icons-outlined mx-1">comment</i>
+                    <i class="material-icons-outlined mx-1">share</i>
+                    <i class="material-icons-outlined mx-1">star_border</i>
+                </div>
             </div>
         </div>
-
-        <section aria-labelledby="featured">
-            <div class="d-flex flex-column post-item featured position-relative my-2">
-                <!-- <div class="position-relative" style="aspect-ratio: 16/9"> -->
-                <img src="{{ featured_post.thumbnail_image }}" class="thumbnail-image">
-                <div class="position-absolute featured-banner">
-                    FEATURED
-                </div>
-                <!-- </div> -->
-
-                <div class="d-flex flex-column post-details p-2 gap-2">
-                    <div class="d-flex align-items-center gap-2">
-                        <img class="profile-pic" src="{% static 'images/sample-profile.png' %}">
-                        <div class="d-flex flex-column">
-                            <span class="user-name">{{ user.login_id }}</span>
-                            <span class="user-location">{{ featured_post.location }}</span>
-                        </div>
-                    </div>
-                    <div class="d-flex flex-column flex-grow-1">
-                        <div class="d-flex flex-column flex-md-row" style="gap:0 1em">
-                            <div class="d-flex gap-1 mb-2">
-                                <span class="hashtag">#trending</span>
-                                <span class="hashtag">#shoppingjapan</span>
-                            </div>
-                        </div>
-                        <span class="post-title">{{ featured_post.title }}</span>
-                        <span>
-                            {{ featured_post.description }}
-                        </span>
-                        <div class="d-flex justify-content-end mt-3">
-                            <i class="material-icons-outlined mx-1">paid</i>
-                            <i class="material-icons-outlined mx-1">favorite_border</i>
-                            <i class="material-icons-outlined mx-1">comment</i>
-                            <i class="material-icons-outlined mx-1">share</i>
-                            <i class="material-icons-outlined mx-1">star_border</i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section aria-labelledby="display-post-category">
-            <div class="d-flex post-category" style="background-color: none">
-                <div class="d-flex flex-column align-items-center justify-content-center post-category-item p-2">
-                    <span class="">ALL</span>
-                    <span>すべて</span>
-                </div>
-                <div class="d-flex flex-column align-items-center justify-content-center post-category-item p-2">
-                    <i class="material-icons-outlined mx-1">menu_book</i>
-                    <span>レストラン</span>
-                </div>
-                <div class="d-flex flex-column align-items-center justify-content-center post-category-item p-2">
-                    <i class="material-icons-outlined mx-1">restaurant</i>
-                    <span>料理</span>
-                </div>
-                <div class="d-flex flex-column align-items-center justify-content-center post-category-item p-2">
-                    <i class="material-icons-outlined mx-1">sports_esports</i>
-                    <span>ゲーム</span>
-                </div>
-                <div class="d-flex flex-column align-items-center justify-content-center post-category-item p-2">
-                    <i class="material-icons-outlined mx-1">menu_book</i>
-                    <span>レストラン</span>
-                </div>
-                <div class="d-flex flex-column align-items-center justify-content-center post-category-item p-2">
-                    <i class="material-icons-outlined mx-1">restaurant</i>
-                    <span>料理</span>
-                </div>
-                <div class="d-flex flex-column align-items-center justify-content-center post-category-item p-2">
-                    <i class="material-icons-outlined mx-1">sports_esports</i>
-                    <span>ゲーム</span>
-                </div>
-            </div>
-        </section>
-        <section aria-labelledby="post-items" class="post-items">
-            <div class="container-fluid" style>
-                <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-3">
-
-                    {% for post in posts %}
-
-                    <div class="col pt-1 px-0">
-                        <div class="d-flex flex-column post-item m-0 m-md-2">
-                            <img src="{{ post.thumbnail_image }}" class="thumbnail-image">
-                            <div class="d-flex flex-column post-details p-2 gap-2">
-                                <div class="d-flex align-items-center gap-2">
-                                    <img class="profile-pic" src="{% static 'images/sample-profile.png' %}">
-                                    <div class="d-flex flex-column">
-                                        <span class="user-name">{{ user.name }}</span>
-                                        <span class="user-location">{{ post.location }}</span>
-                                    </div>
-                                </div>
-                                <div class="d-flex flex-column flex-grow-1">
-                                    <div class="d-flex flex-column flex-md-row" style="gap:0 1em">
-                                        <div class="d-flex gap-1 mb-2">
-                                            <span class="hashtag">#trending</span>
-                                            <span class="hashtag">#shoppingjapan</span>
-                                        </div>
-                                    </div>
-                                    <span class="post-title">{{ post.title }}</span>
-                                    <span>
-                                        {{ post.description }}
-                                    </span>
-                                    <div class="d-flex justify-content-end">
-                                        <i class="material-icons-outlined mx-1">paid</i>
-                                        <i class="material-icons-outlined mx-1">favorite_border</i>
-                                        <i class="material-icons-outlined mx-1">comment</i>
-                                        <i class="material-icons-outlined mx-1">share</i>
-                                        <i class="material-icons-outlined mx-1">star_border</i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {% endfor %}
-
-
-
-                    <div class="col pt-1 px-0">
-                        <div class="d-flex flex-column post-item m-0 m-md-2">
-                            <img src="{% static 'images/sample-thumbnail-2.jpg' %}"
-                                style="aspect-ratio: 16/9; max-height: 20em; object-position: center; object-fit: cover;">
-                            <div class="d-flex flex-column post-details p-2 gap-2">
-                                <div class="d-flex align-items-center gap-2">
-                                    <img class="profile-pic" src="{% static 'images/sample-profile.png' %}">
-                                    <div class="d-flex flex-column">
-                                        <span class="user-name">sampleprofile01234</span>
-                                        <span class="user-location">西梅田</span>
-                                    </div>
-                                </div>
-                                <div class="d-flex flex-column flex-grow-1">
-                                    <div class="d-flex flex-column flex-md-row" style="gap:0 1em">
-                                        <div class="d-flex gap-1 mb-2">
-                                            <span class="hashtag">#trending</span>
-                                            <span class="hashtag">#shoppingjapan</span>
-                                        </div>
-                                    </div>
-                                    <span class="post-title">タイムセール80%OFF</span>
-                                    <span>
-                                        <p>Starting June 30, selected sample items will be up to 80% off after tax. Get
-                                            it now before it is too late.</p>
-                                        <p>First 50 shoppers will get an additional present!! Shop now!!!</p>
-                                    </span>
-                                    <div class="d-flex justify-content-end">
-                                        <i class="material-icons-outlined mx-1">paid</i>
-                                        <i class="material-icons-outlined mx-1">favorite_border</i>
-                                        <i class="material-icons-outlined mx-1">comment</i>
-                                        <i class="material-icons-outlined mx-1">share</i>
-                                        <i class="material-icons-outlined mx-1">star_border</i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col pt-1 px-0">
-                        <div class="d-flex flex-column post-item m-0 m-md-2">
-                            <img src="{% static 'images/sample-thumbnail.png' %}"
-                                style="aspect-ratio: 16/9; max-height: 20em; object-position: center; object-fit: cover;">
-                            <div class="d-flex flex-column post-details p-2 gap-2">
-                                <div class="d-flex align-items-center gap-2">
-                                    <img class="profile-pic" src="{% static 'images/sample-profile.png' %}">
-                                    <div class="d-flex flex-column">
-                                        <span class="user-name">sampleprofile01234</span>
-                                        <span class="user-location">西梅田</span>
-                                    </div>
-                                </div>
-                                <div class="d-flex flex-column flex-grow-1">
-                                    <div class="d-flex flex-column flex-md-row" style="gap:0 1em">
-                                        <div class="d-flex gap-1 mb-2">
-                                            <span class="hashtag">#trending</span>
-                                            <span class="hashtag">#shoppingjapan</span>
-                                        </div>
-                                    </div>
-                                    <span class="post-title">タイムセール80%OFF</span>
-                                    <span>
-                                        <p>Starting June 30, selected sample items will be up to 80% off after tax. Get
-                                            it now before it is too late.</p>
-                                        <p>First 50 shoppers will get an additional present!! Shop now!!!</p>
-                                    </span>
-                                    <div class="d-flex justify-content-end">
-                                        <i class="material-icons-outlined mx-1">paid</i>
-                                        <i class="material-icons-outlined mx-1">favorite_border</i>
-                                        <i class="material-icons-outlined mx-1">comment</i>
-                                        <i class="material-icons-outlined mx-1">share</i>
-                                        <i class="material-icons-outlined mx-1">star_border</i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col pt-1 px-0">
-                        <div class="d-flex flex-column post-item m-0 m-md-2">
-                            <img src="{% static 'images/sample-thumbnail-2.jpg' %}"
-                                style="aspect-ratio: 16/9; max-height: 20em; object-position: center; object-fit: cover;">
-                            <div class="d-flex flex-column post-details p-2 gap-2">
-                                <div class="d-flex align-items-center gap-2">
-                                    <img class="profile-pic" src="{% static 'images/sample-profile.png' %}">
-                                    <div class="d-flex flex-column">
-                                        <span class="user-name">sampleprofile01234</span>
-                                        <span class="user-location">西梅田</span>
-                                    </div>
-                                </div>
-                                <div class="d-flex flex-column flex-grow-1">
-                                    <div class="d-flex flex-column flex-md-row" style="gap:0 1em">
-                                        <div class="d-flex gap-1 mb-2">
-                                            <span class="hashtag">#trending</span>
-                                            <span class="hashtag">#shoppingjapan</span>
-                                        </div>
-                                    </div>
-                                    <span class="post-title">タイムセール80%OFF</span>
-                                    <span>
-                                        <p>Starting June 30, selected sample items will be up to 80% off after tax. Get
-                                            it now before it is too late.</p>
-                                        <p>First 50 shoppers will get an additional present!! Shop now!!!</p>
-                                    </span>
-                                    <div class="d-flex justify-content-end">
-                                        <i class="material-icons-outlined mx-1">paid</i>
-                                        <i class="material-icons-outlined mx-1">favorite_border</i>
-                                        <i class="material-icons-outlined mx-1">comment</i>
-                                        <i class="material-icons-outlined mx-1">share</i>
-                                        <i class="material-icons-outlined mx-1">star_border</i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col pt-1 px-0">
-
-                        <head>
-                            <meta charset="UTF-8">
-                            <meta http-equiv="X-UA-Compatible" content="IE=edge">
-                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                            <title>Document</title>
-                        </head>
-
-                        <body>
-
-                        </body>
-                        <div class="d-flex flex-column post-item m-0 m-md-2">
-                            <img src="{% static 'images/sample-thumbnail.png' %}"
-                                style="aspect-ratio: 16/9; max-height: 20em; object-position: center; object-fit: cover;">
-                            <div class="d-flex flex-column post-details p-2 gap-2">
-                                <div class="d-flex align-items-center gap-2">
-                                    <img class="profile-pic" src="{% static 'images/sample-profile.png' %}">
-                                    <div class="d-flex flex-column">
-                                        <span class="user-name">sampleprofile01234</span>
-                                        <span class="user-location">西梅田</span>
-                                    </div>
-                                </div>
-                                <div class="d-flex flex-column flex-grow-1">
-                                    <div class="d-flex flex-column flex-md-row" style="gap:0 1em">
-                                        <div class="d-flex gap-1 mb-2">
-                                            <span class="hashtag">#trending</span>
-                                            <span class="hashtag">#shoppingjapan</span>
-                                        </div>
-                                    </div>
-                                    <span class="post-title">タイムセール80%OFF</span>
-                                    <span>
-                                        <p>Starting June 30, selected sample items will be up to 80% off after tax. Get
-                                            it now before it is too late.</p>
-                                        <p>First 50 shoppers will get an additional present!! Shop now!!!</p>
-                                    </span>
-                                    <div class="d-flex justify-content-end">
-                                        <i class="material-icons-outlined mx-1">paid</i>
-                                        <i class="material-icons-outlined mx-1">favorite_border</i>
-                                        <i class="material-icons-outlined mx-1">comment</i>
-                                        <i class="material-icons-outlined mx-1">share</i>
-                                        <i class="material-icons-outlined mx-1">star_border</i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
     </div>
-    {% include '_shared/footer.html' %}
-</body>
-
-</html>
+</section>
+<section aria-labelledby="display-post-category">
+    <div class="d-flex post-category" style="background-color: none">
+        <div class="d-flex flex-column align-items-center justify-content-center post-category-item p-2">
+            <span class="">ALL</span>
+            <span>すべて</span>
+        </div>
+        <div class="d-flex flex-column align-items-center justify-content-center post-category-item p-2">
+            <i class="material-icons-outlined mx-1">menu_book</i>
+            <span>レストラン</span>
+        </div>
+        <div class="d-flex flex-column align-items-center justify-content-center post-category-item p-2">
+            <i class="material-icons-outlined mx-1">restaurant</i>
+            <span>料理</span>
+        </div>
+        <div class="d-flex flex-column align-items-center justify-content-center post-category-item p-2">
+            <i class="material-icons-outlined mx-1">sports_esports</i>
+            <span>ゲーム</span>
+        </div>
+        <div class="d-flex flex-column align-items-center justify-content-center post-category-item p-2">
+            <i class="material-icons-outlined mx-1">menu_book</i>
+            <span>レストラン</span>
+        </div>
+        <div class="d-flex flex-column align-items-center justify-content-center post-category-item p-2">
+            <i class="material-icons-outlined mx-1">restaurant</i>
+            <span>料理</span>
+        </div>
+        <div class="d-flex flex-column align-items-center justify-content-center post-category-item p-2">
+            <i class="material-icons-outlined mx-1">sports_esports</i>
+            <span>ゲーム</span>
+        </div>
+    </div>
+</section>
+<section aria-labelledby="post-items" class="post-items">
+    <div class="container-fluid" style>
+        <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-3">
+            {% for post in posts %}
+            <div class="col pt-1 px-0">
+                <div class="d-flex flex-column post-item m-0 m-md-2">
+                    <img src="{{ post.thumbnail_image }}" class="thumbnail-image">
+                    <div class="d-flex flex-column post-details p-2 gap-2">
+                        <div class="d-flex align-items-center gap-2">
+                            <img class="profile-pic" src="{% static 'images/sample-profile.png' %}">
+                            <div class="d-flex flex-column">
+                                <span class="user-name">{{ user.name }}</span>
+                                <span class="user-location">{{ post.location }}</span>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-column flex-grow-1">
+                            <div class="d-flex flex-column flex-md-row" style="gap:0 1em">
+                                <div class="d-flex gap-1 mb-2">
+                                    <span class="hashtag">#trending</span>
+                                    <span class="hashtag">#shoppingjapan</span>
+                                </div>
+                            </div>
+                            <span class="post-title">{{ post.title }}</span>
+                            <p>
+                                {{ post.description|safe }}
+                            </p>
+                            <div class="d-flex justify-content-end">
+                                <i class="material-icons-outlined mx-1">paid</i>
+                                <i class="material-icons-outlined mx-1">favorite_border</i>
+                                <i class="material-icons-outlined mx-1">comment</i>
+                                <i class="material-icons-outlined mx-1">share</i>
+                                <i class="material-icons-outlined mx-1">star_border</i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock content %}

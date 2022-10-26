@@ -13,7 +13,7 @@ class LoginForm(forms.Form):
         widget=forms.TextInput(attrs={
             "id": "login_id",
             "class": "form-control input-field",
-            "placeholder": "メールアドレス"
+            "placeholder": "メールアドレスまたは電話番号"
         }), required=True
     )
 

@@ -1,6 +1,6 @@
 .panel {
     gap: 1rem 2rem;
-    padding-top: 3rem;
+    padding: 3rem 0;
 }
 
 .panel .create-type {

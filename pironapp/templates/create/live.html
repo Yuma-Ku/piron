@@ -1,52 +1,116 @@
-<!DOCTYPE html>
-<html lang="jp">
+{% extends 'base.html' %}
 {% load static %}
+{% block title %}{{ title }}{% endblock title %}
 
-<head>
-    {% include '_shared/htmlhead.html' %}
-    <style>
-        #container {
-            max-width: 800px;
-        }
-    </style>
-</head>
-
-<body>
-    {% include '_shared/header.html' %}
-    <div id="container">
-        <div class="live-create-setup">
-            <p class="title mb-0">LIVE作成</span>
-            <p class="subtitle"><b>画像アップロード</b> > サムネイルアップロード > 本文作成</p>
-            <hr>
-            <div class="tab-content">
-                <div class="tab-pane active">
-                    <div class="d-flex flex-column">
-                        <div class="d-flex align-items-center justify-content-center flex-grow-1">
-                            <h1>tab pane 1b</h1>
+{% block content %}
+<div class="d-flex justify-content-center">
+    <div class="live-create-setup">
+        <p class="title mb-0">LIVE作成</span>
+        <p class="subtitle"><b>画像アップロード</b> > サムネイルアップロード > 本文作成</p>
+        <hr>
+        <div class="tab-content">
+            <!-- <div id="images-panel" class="tab-pane active">
+                <div class="d-flex flex-column">
+                    <div class="d-flex">
+                        <div class="col-label">
+                            <label for="post-image-drop_2">画像や動画をアップロード</label>
+                        </div>
+                        <div class="d-flex flex-grow-1">
+                            <input type="file" name="post-image-drop" id="post-image-drop" class="form-control">
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane">
-                    <div class="d-flex flex-column">
-                        <div class="d-flex align-items-center justify-content-center flex-grow-1">
-                            <h2>tab pane 2b</h2>
+                <div class="d-flex flex-column mt-3">
+                    <div class="d-flex">
+                        <div class="col-label">
+                            <label for="thumbnail-image-drop_2">サムネイル画像をアップロード</label>
+                        </div>
+                        <div class="d-flex flex-grow-1">
+                            <input type="file" name="thumbnail-image-drop" id="thumbnail-image-drop" class="form-control">
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane">
+            </div> -->
+            <div id="info-panel" class="tab-pane active">
+                <form action="../create/post" method="post" novalidate enctype="multipart/form-data">
+                    {% csrf_token %}
                     <div class="d-flex flex-column">
-                        <div class="d-flex align-items-center justify-content-center flex-grow-1">
-                            tab pane 3
+                        <div class="d-flex flex-sm-row flex-column">
+                            <div class="col-label">
+                                <label>タイトル</label>
+                            </div>
+                            <div class="d-flex flex-grow-1">
+                                <input type="text" name="post-title" id="post-title" class="form-control">
+                            </div>
                         </div>
                     </div>
-                </div>
+                    <div class="d-flex flex-column mt-3">
+                        <div class="d-flex flex-sm-row flex-column">
+                            <div class="col-label">
+                                <label>説明文</label>
+                            </div>
+                            <div class="d-flex flex-grow-1">
+                                <textarea class="form-control" id="post-description" name="post-description"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column mt-3">
+                        <div class="d-flex flex-sm-row flex-column">
+                            <div class="col-label">
+                                <label>カテゴリー</label>
+                            </div>
+                            <div class="d-flex flex-grow-1">
+                                <button class="btn btn-orange">選択...</button>
+                                <!-- <input type="text" name="post-title" id="post-title" class="form-control"> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column mt-3">
+                        <div class="d-flex">
+                            <div class="col-label">
+                                <label for="post-image-drop_2">画像</label>
+                            </div>
+                            <div class="d-flex flex-grow-1">
+                                <input type="file" name="post-image-drop" id="post-image-drop" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column mt-3">
+                        <div class="d-flex flex-sm-row flex-column">
+                            <div class="col-label">
+                                <label>住所</label>
+                            </div>
+                            <div class="d-flex flex-grow-1">
+                                <input type="text" name="post-location" id="post-location" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column mt-3">
+                        <div class="d-flex flex-sm-row flex-column">
+                            <div class="col-label">
+                                <label>タグ</label>
+                            </div>
+                            <div class="d-flex flex-grow-1">
+                                <input type="text" name="post-tag" id="post-tag" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column mt-3">
+                        <div class="d-flex flex-sm-row flex-column">
+                            <div class="col-label">
+                                <label>宣伝費用の設定</label>
+                            </div>
+                            <div class="d-flex flex-grow-1">
+                                <input type="text" name="post-ad-cost-setting" id="post-ad-cost-setting" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center mt-3">
+                        <button id="save" class="btn btn-orange-inverse">保存</button>                        
+                    </div>
+                </form>
             </div>
-            <div class="d-flex flex-wrap gap-3 justify-content-center">
-                <button id="prev-live" class="btn btn-orange d-none">戻る</button>
-                <button id="next-live" class="btn btn-orange-inverse">次へ</button>
-            </div>
-            
         </div>
     </div>
-</body>
-</html>
+</div>
+{% endblock content %}

@@ -5,10 +5,11 @@ from pironapp.models import Post, User
 from .forms import LoginForm
 from django.urls import resolve
 import os
+import uuid
 import datetime
 
 def profile_action(request):
-    return render(request, 'profile.html')
+    return render(request, 'profile/index.html')
 
 
 def post_action(request):
@@ -51,9 +52,19 @@ def home_action(request):
         return HttpResponseRedirect('/login/')
     
     user = User.objects.get(pk=request.session.get('user_id'))
-    featured_post = Post.objects.get(pk=15)
-    posts = Post.objects.filter(user_id=user.id)
+    featured_post = Post.objects.last()
+    posts = Post.objects.filter(user_id=user.id).order_by('-id')
     
+    # return HttpResponse(posts.count())
+    
+    for post in posts:
+        description_tohtml = post.description
+        post.description = description_tohtml.replace("\n", "<br>")
+        
+        # posts[x].description = str2.replace("\n", "<br>")
+        
+    
+    # return HttpResponse(str2)
     # return HttpResponse(posts.location)
     
     args = {
@@ -62,6 +73,8 @@ def home_action(request):
         'featured_post': featured_post,
         'posts': posts
     }
+    
+    # return HttpResponse(args['posts'][0].description)
     
     return render(request, 'home/index.html', args)
         
@@ -96,6 +109,7 @@ def create_post_action(request):
         post_obj.title = params["post-title"]
         post_obj.description = params["post-description"]
         post_obj.location = params["post-location"]
+        post_obj.user_id = request.session.get('user_id')
         
         
         if request.FILES.get("post-image-drop", None) is not None:
@@ -123,21 +137,18 @@ def create_post_action(request):
             MEDIA_IMAGE_PATH = "media/images/"
             date_now = datetime.datetime.now()
             img_name = "tmb_img_%s" % (date_now.strftime("%Y%m%d%H%M%S"))
-            img_save_path = "%s%s.%s" % (MEDIA_IMAGE_PATH, img_name, img_extension)
+            img_save_path = "%s%s%s" % (MEDIA_IMAGE_PATH, img_name, img_extension)
             with open(img_save_path, "wb+") as f:
                 for chunk in img.chunks():
                     f.write(chunk)
             # args["success"] =  True
             post_obj.thumbnail_image = img_save_path
             # return HttpResponse(img_save_path)
+            post_obj.save()
             
-            
-        else:
+        # else:
             # return JsonResponse(data)
-            return HttpResponse("ha?")
-        
-        post_obj.save()
-            
+            # return HttpResponse("ha?")
     
     
     return render(request, 'create/post.html', args)
